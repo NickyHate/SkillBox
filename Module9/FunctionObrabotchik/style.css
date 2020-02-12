@@ -1,0 +1,44 @@
+body,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+}
+p {
+  font-size: 16px;
+  font-style: italic;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.toDoList,
+.toDoAdd {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 20px 5%;
+}
+li {
+  margin: 10px 0;
+}
+input,
+button {
+  margin: 20px 0;
+}
+input {
+  height: 30px;
+}
+button {
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.done{
+ text-decoration: line-through;
+}

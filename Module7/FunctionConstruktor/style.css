@@ -1,0 +1,21 @@
+.container {
+  width: 50%;
+  height: 100vh;
+  
+}
+.transport {
+  padding: 20px 0;
+  margin-bottom: 50px;
+}
+.move {
+  transform: translateX(300%);
+  transition: 5s;
+}
+
+.plain {
+  display: flex;
+  height: 200px;
+}
+.plain img {
+  align-self: flex-end;
+}
