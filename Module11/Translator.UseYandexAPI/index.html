@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Переводчик с использовнием Yandex API</h1>
+    <div class="container">
+      <div class="container__get">
+        <input type="text" class="get__word main" />
+        <div class="get__language main">
+          <p class="text" id="first-lang">Выберите язык ввода</p>
+          <img class="arrow" src="img/arrow.png" alt="Иконка стрелки" />
+        </div>
+        <div class="lang-choose">
+          <div class="language main">Русский</div>
+          <div class="language main">English</div>
+        </div>
+      </div>
+      <div class="container__get">
+        <div class="container__translate main">
+          <p class="translate"></p>
+        </div>
+        <div class="get__language main">
+          <p class="text" id="second-lang">Выберите язык перевода</p>
+          <img class="arrow" src="img/arrow.png" alt="Иконка стрелки" />
+        </div>
+        <div class="lang-choose">
+          <div class="language main">English</div>
+          <div class="language main">Русский</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <button class="button">Перевести</button>
+    </div>
+  </body>
+</html>
