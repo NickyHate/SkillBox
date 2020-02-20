@@ -28,3 +28,41 @@ button {
   flex-direction: row;
   justify-content: space-around;
 }
+.color-container {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: 2s;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.active{
+  opacity: 1;
+  height: auto;
+  overflow: visible;
+}
+.color-set {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+#red {
+  background-color: red;
+}
+#green {
+  background-color: green;
+}
+#yellow {
+  background-color: yellow;
+}
+#purple {
+  background-color: purple;
+}
+#blue {
+  background-color: blue;
+}
+#pink {
+  background-color: pink;
+}
