@@ -37,8 +37,12 @@ p {
   text-align: center;
   box-sizing: border-box;
 }
-.language{
+.arrow {
+  cursor: pointer;
+}
+.language {
   margin: 0;
+  cursor: pointer;
 }
 
 .lang-choose {
@@ -62,6 +66,7 @@ p {
   outline: none;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 .button:hover {
   color: rgba(111, 0, 126, 0.548);
