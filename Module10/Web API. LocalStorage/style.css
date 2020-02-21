@@ -9,6 +9,11 @@ button {
   background-color: indigo;
   color: whitesmoke;
 }
+h3 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
 .container {
   width: 700px;
@@ -35,10 +40,15 @@ button {
   transition: 2s;
   margin-top: 20px;
   display: flex;
+  flex-direction: column;
+}
+.color-container__colors {
+  margin-top: 20px;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.active{
+.active {
   opacity: 1;
   height: auto;
   overflow: visible;

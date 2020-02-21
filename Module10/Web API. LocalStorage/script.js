@@ -5,29 +5,37 @@ const save = document.querySelector(".save");
 const cancel = document.querySelector(".cancel");
 const text = document.querySelector(".text");
 const colors = document.querySelectorAll(".color-set");
+var arr = [];
 
-(function() {
-  var selectedText = "";
-  document.onmouseup = function() {
-    setTimeout(function() {
-      if (window.getSelection) {
-        var selection = window.getSelection();
+color.addEventListener("click", function() {
+  colorBar.classList.add("active");
+});
 
-        selectedText = selection.toString();
-      } else if (document.selection) {
-        var range = document.selection.createRange();
+for (let i = 0; i < colors.length; i++) {
+  colors[i].addEventListener("click", getColor);
+}
 
-        selectedText = range.htmlText;
-      }
-    }, 10);
-  };
-  window.getLastSelection = function() {
-    return selectedText;
-  };
-})();
+function getColor(event) {
+  var target = event.currentTarget;
+  var att = target.getAttribute("id");
+  arr.push(att);
+}
+text.addEventListener("mouseup", styleText);
+function styleText() {
+  if (document.getSelection() == "") {
+    console.log("ne");
+    return false;
+  }
+  let range = document.getSelection().getRangeAt(0);
+  let selectionContents = range.extractContents();
+  let span = document.createElement("span");
+  span.appendChild(selectionContents);
+  span.style.color = arr[arr.length - 1];
+  range.insertNode(span);
+}
 
 edit.addEventListener("click", function() {
-  localStorage.setItem("0", text.textContent);
+  localStorage.setItem("0", text.innerHTML);
   edit.setAttribute("disabled", "disabled");
   color.removeAttribute("disabled");
   save.removeAttribute("disabled");
@@ -35,26 +43,8 @@ edit.addEventListener("click", function() {
   text.setAttribute("contenteditable", "true");
 });
 
-color.addEventListener("click", function() {
-  colorBar.classList.add("active");
-});
-
-for (let i = 0; i < colors.length; i++) {
-  colors[i].addEventListener("click", makeСolor);
-}
-
-function makeСolor(event) {
-  var target = event.currentTarget;
-  var select = window.getLastSelection().toString();
-  var span = document.createElement("span");
-  var att = target.getAttribute("id");
-  span.style.color = att;
-  span.innerHTML = select;
-  text.append(span);
-}
-
 save.addEventListener("click", function() {
-  localStorage.setItem("1", text.textContent);
+  localStorage.setItem("1", text.innerHTML);
   edit.removeAttribute("disabled");
   save.setAttribute("disabled", "disabled");
   cancel.setAttribute("disabled", "disabled");
@@ -71,8 +61,11 @@ cancel.addEventListener("click", function() {
 });
 
 window.onload = function() {
-  let c = this.localStorage.getItem(1);
+  debugger;
+  var div = document.createElement("div");
+  let c = localStorage.getItem(1);
   if (c !== null) {
-    text.textContent = c;
+    div.innerHTML = localStorage.getItem(1);
+    text.replaceWith(div);
   }
 };
