@@ -1,10 +1,11 @@
-const edit = document.querySelector(".edit");
-const color = document.querySelector(".color");
-const colorBar = document.querySelector(".color-container");
-const save = document.querySelector(".save");
-const cancel = document.querySelector(".cancel");
-const text = document.querySelector(".text");
-const colors = document.querySelectorAll(".color-set");
+var edit = document.querySelector(".edit");
+var save = document.querySelector(".save");
+var cancel = document.querySelector(".cancel");
+var clearStorage = document.querySelector(".clear-storage");
+var color = document.querySelector(".color");
+var colorBar = document.querySelector(".color-container");
+var text = document.querySelector(".text");
+var colors = document.querySelectorAll(".color-set");
 var arr = [];
 
 color.addEventListener("click", function() {
@@ -20,10 +21,11 @@ function getColor(event) {
   var att = target.getAttribute("id");
   arr.push(att);
 }
+
 text.addEventListener("mouseup", styleText);
+
 function styleText() {
   if (document.getSelection() == "") {
-    console.log("ne");
     return false;
   }
   let range = document.getSelection().getRangeAt(0);
@@ -35,7 +37,6 @@ function styleText() {
 }
 
 edit.addEventListener("click", function() {
-  localStorage.setItem("0", text.innerHTML);
   edit.setAttribute("disabled", "disabled");
   color.removeAttribute("disabled");
   save.removeAttribute("disabled");
@@ -49,23 +50,26 @@ save.addEventListener("click", function() {
   save.setAttribute("disabled", "disabled");
   cancel.setAttribute("disabled", "disabled");
   colorBar.classList.remove("active");
+  text.removeAttribute("contenteditable");
 });
 
 cancel.addEventListener("click", function() {
   edit.removeAttribute("disabled");
   save.setAttribute("disabled", "disabled");
   cancel.setAttribute("disabled", "disabled");
+  text.removeAttribute("contenteditable");
   colorBar.classList.remove("active");
   let b = localStorage.getItem(0);
   text.textContent = b;
 });
 
+clearStorage.addEventListener("click", function() {
+  localStorage.clear();
+});
+
 window.onload = function() {
-  debugger;
-  var div = document.createElement("div");
   let c = localStorage.getItem(1);
   if (c !== null) {
-    div.innerHTML = localStorage.getItem(1);
-    text.replaceWith(div);
+    text.innerHTML = c;
   }
 };
